@@ -3,7 +3,7 @@ package com.example.srud.repository
 import javax.persistence.*
 
 @Entity
-class Crud (
+class Srud (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
