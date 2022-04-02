@@ -3,14 +3,19 @@ package com.example.srud.repository
 import javax.persistence.*
 
 @Entity
-class Srud (
+open class Srud() {
+    constructor(title: String, content: String) : this() {
+        this.title = title
+        this.content = content
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
+    open var id: Long? = null
 
     @Column(nullable = false)
-    var title: String,
+    lateinit var title: String
 
     @Column(nullable = false)
-    var content: String
-)
+    lateinit var content: String
+}
