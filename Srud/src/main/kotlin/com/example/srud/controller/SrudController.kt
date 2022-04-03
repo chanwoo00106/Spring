@@ -12,7 +12,7 @@ class SrudController(
     fun getAll() = srudService.getAll()
 
     @PostMapping("/")
-    fun addContent(@RequestBody data: SrudRequest) = srudService.addContent(title = data.title, content = data.content)
+    fun addConten(@RequestBody data: SrudRequest) = srudService.addContent(title = data.title, content = data.content)
 
     @PutMapping(path = ["/{id}"])
     fun update(@PathVariable("id") id: Long, @RequestBody data: SrudRequest) = srudService.update(id, data.title, data.content)

@@ -9,24 +9,9 @@ import org.springframework.stereotype.Service
 class SrudService(
     private val srudRepository: SrudRepository
 ) {
-    fun getAll(): MutableIterable<Srud>? {
-        println("시작")
-        try {
-            val a = srudRepository.findAll()
-            println("끝")
-            return a;
-        } catch (e: Exception) {
-            println(e)
-            return null
-        }
-    }
+    fun getAll() = srudRepository.findAll()
 
-    fun addContent(title: String, content: String): Srud {
-        println("${title}, ${content}")
-        val a = Srud(title = title, content = content)
-        println(a)
-        return srudRepository.save(a)
-    }
+    fun addContent(title: String, content: String) = srudRepository.save(Srud(title = title, content = content))
 
     fun update(id: Long, title: String, content: String): Srud {
         val result = srudRepository.findByIdOrNull(id) ?: throw Exception()
