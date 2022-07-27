@@ -2,9 +2,13 @@ package hello.core.discount;
 
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("mainDiscountPolicy")
+@Primary // 같은 타입의 bean이 존재할 때 우선 권을 가짐
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
