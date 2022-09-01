@@ -17,6 +17,7 @@ public class Delivery {
     @OneToOne(mappedBy = "delivery")
     private Order order;
 
+    @Embedded
     private Address address;
 
     @Enumerated(EnumType.STRING)
