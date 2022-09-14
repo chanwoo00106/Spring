@@ -24,10 +24,6 @@ public class OrderService {
 
     /**
      * 주문
-     * @param memberId
-     * @param itemId
-     * @param count
-     * @return
      */
     @Transactional
     public Long order(Long memberId, Long itemId, int count) {
