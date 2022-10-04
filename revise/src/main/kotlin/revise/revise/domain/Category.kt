@@ -20,7 +20,7 @@ class Category (
         joinColumns = [JoinColumn(name = "category_id")],
         inverseJoinColumns = [JoinColumn(name = "item_id")]
     )
-    var items: List<Item>,
+    var items: MutableList<Item>,
 
     @ManyToOne
     @JoinColumn(name = "parent_id")

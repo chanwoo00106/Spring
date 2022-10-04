@@ -7,7 +7,7 @@ import javax.persistence.*
 @Table(name = "orders")
 class Order (
     @ManyToOne
-    @Column(name = "member_id")
+    @JoinColumn(name = "member_id")
     var member: Member,
 
     @OneToMany(mappedBy = "order")

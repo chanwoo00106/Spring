@@ -12,8 +12,8 @@ abstract class Item (
     var stockQuantity: Int,
 
     @ManyToMany(mappedBy = "items")
-    var categories: List<Category>
-        ) {
+    var categories: MutableList<Category>
+) {
     @Id @GeneratedValue
     @Column(name = "item_id")
     var id: Long = 0
