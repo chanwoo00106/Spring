@@ -12,4 +12,9 @@ class MainController {
         println(headers["authorization"])
         return "hello world"
     }
+
+    @GetMapping("/hi")
+    fun hi(): String {
+        return "hi"
+    }
 }
