@@ -20,3 +20,7 @@ spring:
 logging:
     level:
         org.hibernate.sql: debug
+
+jwt:
+    header: Authorization
+    secret: 3d5b19de6c651844dfb5417ea9fb745c40262df473bd0983389a0dbbf4c8817257cf2cb833e81b9e00f86f60d9a2d6cf6078a3c5b5730f99943245573bbf4c08

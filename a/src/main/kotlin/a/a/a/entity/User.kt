@@ -22,5 +22,5 @@ class User (
     val activated: Boolean
 ) {
     @Id @GeneratedValue
-    val id: Int = 0
+    val id: Long = 0
 }
