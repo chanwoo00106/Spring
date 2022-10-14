@@ -1,5 +1,6 @@
 package a.a.a.jwt
 
+import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -40,13 +41,13 @@ class TokenProvider(
             .compact()
     }
 
-    fun getTokenId(req: HttpServletRequest): String? {
+    fun getToken(req: HttpServletRequest): String? {
         val authorization = req.getHeader("Authorization") ?: return null
-        val token = if (authorization.startsWith(TOKEN_PREFIX)) authorization.replace(TOKEN_PREFIX, "") else null
+        return if (authorization.startsWith(TOKEN_PREFIX)) authorization.replace(TOKEN_PREFIX, "") else null
+    }
 
-
-
-        val body = try {
+    fun parseToken(token: String): Claims {
+        return try {
             Jwts.parserBuilder()
                 .setSigningKey(this.key)
                 .build()
@@ -57,7 +58,15 @@ class TokenProvider(
         } catch (e: Exception) {
             throw Exception()
         }
+    }
 
-        return body.subject
+    fun getTokenId(req: HttpServletRequest): String? {
+        val token = getToken(req)
+        if (!token.isNullOrBlank()) {
+            val body = parseToken(token)
+            return body.subject
+        }
+
+        return null
     }
 }
