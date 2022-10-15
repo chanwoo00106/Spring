@@ -6,6 +6,7 @@ import javax.persistence.*
 class User (
     var name: String,
 
+    @Column(unique = true)
     var username: String,
 
     var password: String,
