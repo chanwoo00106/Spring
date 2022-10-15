@@ -4,13 +4,16 @@ import a.a.a.domain.Role
 import a.a.a.domain.User
 import a.a.a.repository.RoleRepository
 import a.a.a.repository.UserRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Transactional
 class UserServiceImpl(
+    @Autowired
     private val userRepository: UserRepository,
+    @Autowired
     private val roleRepository: RoleRepository
 ): UserService  {
 
@@ -25,7 +28,7 @@ class UserServiceImpl(
     override fun addRoleToUser(username: String, roleName: String) {
         var user = userRepository.findByUsername(username)
         var role = roleRepository.findByName(roleName)
-        user.roles.add(role)
+        user.roles?.add(role)
     }
 
     override fun findByUsername(username: String): User {

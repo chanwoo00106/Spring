@@ -12,7 +12,8 @@ class User (
     var password: String,
 
     @ManyToMany
-    var roles: MutableList<Role>
+    @Column(nullable = true)
+    var roles: MutableList<Role>?
 ) {
     @Id @GeneratedValue
     val id: Long = 0
