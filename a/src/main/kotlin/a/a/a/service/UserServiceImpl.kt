@@ -2,6 +2,7 @@ package a.a.a.service
 
 import a.a.a.domain.Role
 import a.a.a.domain.User
+import a.a.a.dto.RoleToUserDto
 import a.a.a.repository.RoleRepository
 import a.a.a.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,9 +26,9 @@ class UserServiceImpl(
         return roleRepository.save(role)
     }
 
-    override fun addRoleToUser(username: String, roleName: String) {
-        var user = userRepository.findByUsername(username)
-        var role = roleRepository.findByName(roleName)
+    override fun addRoleToUser(roleToUser: RoleToUserDto) {
+        var user = userRepository.findByUsername(roleToUser.username)
+        var role = roleRepository.findByName(roleToUser.roleName)
         user.roles?.add(role)
     }
 
