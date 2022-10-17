@@ -6,6 +6,10 @@ import a.a.a.dto.RoleToUserDto
 import a.a.a.repository.RoleRepository
 import a.a.a.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -16,7 +20,14 @@ class UserServiceImpl(
     private val userRepository: UserRepository,
     @Autowired
     private val roleRepository: RoleRepository
-): UserService  {
+): UserService, UserDetailsService  {
+    override fun loadUserByUsername(username: String): UserDetails {
+        val user = userRepository.findByUsername(username) ?: throw UsernameNotFoundException("User not found")
+
+        val authorities: MutableList<SimpleGrantedAuthority> = ArrayList<SimpleGrantedAuthority>()
+        user.roles?.forEach { role -> authorities.add(SimpleGrantedAuthority(role.name)) }
+        return org.springframework.security.core.userdetails.User(username, user.password, authorities)
+    }
 
     override fun saveUser(user: User): User {
         return userRepository.save(user);
@@ -27,12 +38,12 @@ class UserServiceImpl(
     }
 
     override fun addRoleToUser(roleToUser: RoleToUserDto) {
-        var user = userRepository.findByUsername(roleToUser.username)
-        var role = roleRepository.findByName(roleToUser.roleName)
-        user.roles?.add(role)
+        val user = userRepository.findByUsername(roleToUser.username)
+        val role = roleRepository.findByName(roleToUser.roleName)
+        user?.roles?.add(role)
     }
 
-    override fun findByUsername(username: String): User {
+    override fun findByUsername(username: String): User? {
         return userRepository.findByUsername(username)
     }
 

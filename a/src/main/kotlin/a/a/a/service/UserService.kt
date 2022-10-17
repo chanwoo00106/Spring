@@ -10,6 +10,6 @@ interface UserService {
 
     fun addRoleToUser(roleToUser: RoleToUserDto)
 
-    fun findByUsername(username: String): User
+    fun findByUsername(username: String): User?
     fun findAll(): List<User>
 }
