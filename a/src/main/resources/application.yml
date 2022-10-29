@@ -17,6 +17,13 @@ spring:
             hibernate:
                 show_sql: true
                 format_sql: true
+
+    security:
+        user:
+            name: 1234
+            password: 1234
+            roles: USER
+
 logging:
     level:
         org.hibernate.sql: debug
