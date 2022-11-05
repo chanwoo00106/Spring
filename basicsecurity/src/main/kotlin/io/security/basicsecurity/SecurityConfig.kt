@@ -1,13 +1,17 @@
 package io.security.basicsecurity
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.stereotype.Component
-import javax.servlet.http.HttpSession
 
 @Component
-class SecurityConfig {
+class SecurityConfig (
+    @Autowired
+    val userDetailsService: UserDetailsService
+) {
     @Bean
     fun configure(http: HttpSecurity): SecurityFilterChain {
         return http
@@ -44,7 +48,12 @@ class SecurityConfig {
                 request, response, authentication ->
                 response.sendRedirect("/login")
             }
-            .deleteCookies("remember=me")
+            .deleteCookies("remember-me", "JSESSIONID")
+            .and()
+            .rememberMe()
+            .rememberMeParameter("remember")
+            .tokenValiditySeconds(3600)
+            .userDetailsService(userDetailsService)
             .and()
             .build()
     }
