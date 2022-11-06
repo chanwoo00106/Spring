@@ -14,21 +14,12 @@ public class JpaMain {
         tx.begin();
 
         try {
-            // find
-//            Member findMember = em.find(Member.class, 1L);
-//            System.out.println("findMember.id = " + findMember.getId());
-//            System.out.println("findMember.name = " + findMember.getName());
+            Member member1 = em.find(Member.class, 150L);
 
-            // create
-//            Member member = new Member();
-//            member.setId(2L);
-//            member.setName("HelloB");
-//
-//            em.persist(member);
+            em.clear();
 
-            // update
-            Member findMember = em.find(Member.class, 1L);
-            findMember.setName("HelloJPA");
+
+            Member member2 = em.find(Member.class, 150L);
 
             tx.commit();
         } catch (Exception e) {
