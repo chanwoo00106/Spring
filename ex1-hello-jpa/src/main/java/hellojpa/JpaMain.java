@@ -1,5 +1,7 @@
 package hellojpa;
 
+import hellojpa.domain.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -14,13 +16,6 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member1 = em.find(Member.class, 150L);
-
-            em.clear();
-
-
-            Member member2 = em.find(Member.class, 150L);
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
