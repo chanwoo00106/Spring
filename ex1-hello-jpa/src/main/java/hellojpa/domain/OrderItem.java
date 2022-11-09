@@ -8,7 +8,6 @@ public class OrderItem {
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @Column(name = "ORDER_ID")
     private Long orderId;
 
     @ManyToOne
