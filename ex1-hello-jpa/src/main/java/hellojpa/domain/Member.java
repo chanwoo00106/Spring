@@ -1,5 +1,7 @@
 package hellojpa.domain;
 
+import net.bytebuddy.utility.nullability.MaybeNull;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,10 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     public List<Order> getOrders() {
         return orders;

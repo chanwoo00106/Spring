@@ -10,7 +10,7 @@ class Team {
   private String name;
 }
 
-@class
+@Entity
 class Member {
   @Id @GenerateValue
   private Long id;
@@ -30,7 +30,7 @@ class Team {
   private List<Member> members = new ArrayList<>;
 }
 
-@class
+@Entity
 class Member {
   @Id @GenerateValue
   private Long id;
@@ -44,7 +44,8 @@ class Member {
 ```java
 @Entity
 class Team {
-  @Id @GenerateValue
+  @Id
+  @GenerateValue
   private Long id;
   private String name;
 
@@ -52,9 +53,10 @@ class Team {
   private List<Member> members = new ArrayList<>;
 }
 
-@class
+@Entity
 class Member {
-  @Id @GenerateValue
+  @Id
+  @GenerateValue
   private Long id;
   private String username;
 
@@ -68,13 +70,15 @@ class Member {
 
 위 테이블에서 mappedBy라는 게 나오는 데 간단하게 설명을 하자면 연관관계의 주인을 결정하는 것이다
 
-![mappedBy](/img/mappedBy_img.png)
+![mappedBy](./img/mappedBy_img.png)
 
 객체의 연관관계의 경우 `member`에서 `team` 값을 변경해야 하는지 `team`에서 `team` 값을 바꿔야 하는 지 혼동이 오게 된다. 반대로 `team`에서 `member`값을 변경해야 하는지 `member`에서 `member`값을 변경해야 하는지 진짜 어려워 진다.
 
 이러한 문제를 해결하기 위해 연관관계 주인을 결정해서 어디서 수정을 해줘야 하는 지를 정해 준다
 
-그리고 연관관계의 주인은 외래키가 있는 쪽이 연관관계의 주인으로 하는 게 좋다
+그리고 연관관계의 주인은 외래키가 있는 쪽이 연관관계의 주인으로 하는 게 좋다<br>
+즉 Many 쪽을 연관관계의 주인으로 해주는 게 좋다<br>
+그리고 mappedBy는 주인으로 하고싶은 곳의 반대편에서 주인이로 하고싶은 컬럼을 적어준다
 
 ## 연관관계 주인의 주의점
 
