@@ -1,7 +1,7 @@
 package hellojpa;
 
-import hellojpa.domain.Book;
-import hellojpa.domain.Member;
+import hellojpa.domain.Child;
+import hellojpa.domain.Parent;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,11 +17,14 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Book book = new Book();
-            book.setName("JPA");
-            book.setAuthor("gkgk");
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-            em.persist(book);
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
 
             tx.commit();
         } catch (Exception e) {
