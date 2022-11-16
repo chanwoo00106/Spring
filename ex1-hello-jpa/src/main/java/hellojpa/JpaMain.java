@@ -1,7 +1,6 @@
 package hellojpa;
 
-import hellojpa.domain.Child;
-import hellojpa.domain.Parent;
+import hellojpa.domain.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,14 +16,12 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Child child1 = new Child();
-            Child child2 = new Child();
+            Member member = new Member();
+            member.setName("아아아");
+            member.setHomeAddress(new Address("sdfsdf", "sdfssdfjdfldf", "dfhsdjsf"));
+            member.setWorkPeriod(new Period());
 
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
-
-            em.persist(parent);
+            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
