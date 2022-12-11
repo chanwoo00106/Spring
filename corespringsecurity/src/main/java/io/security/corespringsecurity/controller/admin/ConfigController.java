@@ -8,6 +8,6 @@ public class ConfigController {
 
     @GetMapping("/config")
     public String config(){
-        return "admin/config";
+        return "admin/home";
     }
 }
