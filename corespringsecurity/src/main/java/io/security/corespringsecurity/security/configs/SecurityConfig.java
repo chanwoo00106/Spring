@@ -2,6 +2,7 @@ package io.security.corespringsecurity.security.configs;
 
 import jakarta.websocket.Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,13 +31,18 @@ public class SecurityConfig {
             .build();
         UserDetails user1 = User.withUsername("admin")
             .password(password)
-            .roles("ADMIN")
+            .roles("ADMIN", "USER", "MANAGER")
             .build();
         UserDetails user2 = User.withUsername("manager")
             .password(password)
-            .roles("MANAGER")
+            .roles("MANAGER", "USER")
             .build();
         return new InMemoryUserDetailsManager(user, user1, user2);
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
     @Bean
