@@ -10,6 +10,11 @@ import javax.validation.Valid
 class Controller(
     val userService: UserService
 ) {
+    @GetMapping()
+    fun home(): String {
+        return "Home"
+    }
+
     @PostMapping("/users")
     fun createUser(@Valid @RequestBody accountDto: AccountDto): Account {
         return userService.createUser(accountDto)
