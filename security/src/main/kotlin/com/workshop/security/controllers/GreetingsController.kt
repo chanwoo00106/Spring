@@ -2,9 +2,11 @@ package com.workshop.security.controllers
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/greetings")
+@RestController()
+@RequestMapping("/greetings")
 class GreetingsController {
   @GetMapping
   fun sayHello(): ResponseEntity<String> {
