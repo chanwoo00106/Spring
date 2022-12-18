@@ -2,9 +2,6 @@ package io.security.corespringsecurity.security
 
 import org.springframework.context.annotation.Bean
 import org.springframework.http.HttpMethod
-import org.springframework.security.authentication.AuthenticationManager
-import org.springframework.security.authentication.AuthenticationProvider
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.crypto.factory.PasswordEncoderFactories
@@ -22,6 +19,12 @@ class SecurityConfig {
                     .antMatchers(HttpMethod.GET, "/").permitAll()
                     .anyRequest().denyAll()
         }
+        .formLogin()
+            .loginPage("/login")
+            .loginProcessingUrl("/login_proc")
+            .defaultSuccessUrl("/")
+            .permitAll()
+            .and()
         .csrf().disable()
         .formLogin()
         return http.build()
