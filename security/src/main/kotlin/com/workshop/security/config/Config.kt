@@ -1,17 +1,13 @@
 package com.workshop.security.config
 
+import com.workshop.security.entity.User
 import org.springframework.context.annotation.Bean
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.password.NoOpPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.provisioning.InMemoryUserDetailsManager
-import org.springframework.security.provisioning.JdbcUserDetailsManager
-import org.springframework.security.provisioning.UserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
-import javax.sql.DataSource
 
 
 @EnableWebSecurity
@@ -27,13 +23,11 @@ class Config {
 
   @Bean
   fun userDetailsService(): UserDetailsService {
-    val userDetailsService = InMemoryUserDetailsManager()
+    val userDetailsService = InMemoryUserDetailsService()
 
-    val user = User.withUsername("user")
-      .password("1234")
-      .authorities("read")
-      .build()
-    userDetailsService.createUser(user)
+    val user = User("chan", "12345", "read")
+
+    userDetailsService.users = mutableListOf(user)
 
     return userDetailsService
   }
