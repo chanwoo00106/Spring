@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class HelloController {
   @GetMapping("/hello")
-  fun hello(auth: Authentication): String {
+  fun hello(auth: Authentication?): String {
+    if (auth == null) return "Hello!"
     return "hello, " + auth.name
   }
 }
