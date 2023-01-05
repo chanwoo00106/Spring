@@ -4,6 +4,7 @@ import com.example.ch6ex1.domain.authority.Authority
 import com.example.ch6ex1.domain.authority.AuthorityRepository
 import com.example.ch6ex1.domain.product.Product
 import com.example.ch6ex1.domain.product.ProductRepository
+import com.example.ch6ex1.domain.product.enums.Currency
 import com.example.ch6ex1.domain.user.User
 import com.example.ch6ex1.domain.user.UserRepository
 import com.example.ch6ex1.domain.user.enums.Algorithm
@@ -24,7 +25,7 @@ class TestDataInit (
     val user = User("chan", "$2a$10\$WO8E7gPGtOkJ2yBtwnFTje4xao/uIcBIWJ5urbcSEyCTDb4glI0dS", Algorithm.BCRYPT)
     val authority1 = Authority("READ", user)
     val authority2 = Authority("WRITE", user)
-    val product = Product("Chocolate", 10, "USD")
+    val product = Product("Chocolate", 10, Currency.USD)
 
     userRepository.save(user)
     authorityRepository.save(authority1)
