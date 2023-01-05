@@ -12,6 +12,7 @@ class SecurityConfig {
     return BCryptPasswordEncoder()
   }
 
+  @Bean
   fun sCryptPasswordEncoder(): SCryptPasswordEncoder {
     return SCryptPasswordEncoder()
   }
