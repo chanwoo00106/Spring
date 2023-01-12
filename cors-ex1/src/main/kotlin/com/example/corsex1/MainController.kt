@@ -16,7 +16,7 @@ class MainController {
 //  @CrossOrigin("http://127.0.0.1:8080", "http://localhost:8080")
   @PostMapping("/test")
   @ResponseBody
-  fun test(): String {
-    return "Hello"
+  fun test(): HelloDto {
+    return HelloDto("hello world")
   }
 }
