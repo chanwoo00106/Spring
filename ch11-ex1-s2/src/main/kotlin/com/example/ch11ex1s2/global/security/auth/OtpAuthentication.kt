@@ -4,9 +4,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority
 
 class OtpAuthentication: UsernamePasswordAuthenticationToken {
-  var principal: Any? = null
-  var credentials: Any? = null
-  var authorities: MutableList<GrantedAuthority>? = null
+  private var principal: Any
+  private var credentials: Any
+  private var authorities: MutableList<GrantedAuthority>? = null
   constructor(
     principal: Any,
     credentials: Any
