@@ -6,14 +6,12 @@ import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.AuthenticationManager
-import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import java.nio.charset.StandardCharsets
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@Component
 class InitialAuthenticationFilter(
   private val manager: AuthenticationManager
 ): OncePerRequestFilter() {
@@ -25,11 +23,15 @@ class InitialAuthenticationFilter(
     val password = request.getHeader("password")
     val code = request.getHeader("code")
 
+    logger.info("hello")
+    logger.info("manager = $manager")
+    logger.info("hello")
+
     if (code == null) {
       val auth = UsernamePasswordAuthentication(username, password)
       manager.authenticate(auth)
     } else {
-      val auth = manager.authenticate(OtpAuthentication(username, password))
+      manager.authenticate(OtpAuthentication(username, password))
       val key = Keys.hmacShaKeyFor(
         signingKey.toByteArray(StandardCharsets.UTF_8)
       )
@@ -45,5 +47,4 @@ class InitialAuthenticationFilter(
   override fun shouldNotFilter(request: HttpServletRequest): Boolean {
     return request.servletPath != "/login"
   }
-
 }
