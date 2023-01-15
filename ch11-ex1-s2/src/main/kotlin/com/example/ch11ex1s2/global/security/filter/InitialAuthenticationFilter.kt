@@ -6,12 +6,14 @@ import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import java.nio.charset.StandardCharsets
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+@Component
 class InitialAuthenticationFilter(
   private val manager: AuthenticationManager
 ): OncePerRequestFilter() {
@@ -22,10 +24,6 @@ class InitialAuthenticationFilter(
     val username = request.getHeader("username")
     val password = request.getHeader("password")
     val code = request.getHeader("code")
-
-    logger.info("hello")
-    logger.info("manager = $manager")
-    logger.info("hello")
 
     if (code == null) {
       val auth = UsernamePasswordAuthentication(username, password)
