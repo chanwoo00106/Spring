@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c16f637e-54a2-4d65-b2de-cb4371c4fcd3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ch13-ex1/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../ch13-ex1/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch13-ex1/src/main/kotlin/com/example/ch13ex1/AuthorizationServerConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ch13-ex1/src/main/kotlin/com/example/ch13ex1/AuthorizationServerConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ch13-ex1/src/main/kotlin/com/example/ch13ex1/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ch13-ex1/src/main/kotlin/com/example/ch13ex1/SecurityConfig.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2KgU4Go09RcUmVxeBx3gdln01RE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "9c786018cfa6a3f166289cc00274d7ac",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Ch14Ex1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ch14-ex1.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ch14ex1.Ch14Ex1Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c16f637e-54a2-4d65-b2de-cb4371c4fcd3" name="Changes" comment="" />
+      <created>1674395545689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674395545689</updated>
+      <workItem from="1674395547143" duration="754000" />
+      <workItem from="1674450990879" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

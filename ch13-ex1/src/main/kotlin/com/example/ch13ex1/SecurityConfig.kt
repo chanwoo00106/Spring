@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.password.NoOpPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.oauth2.server.authorization.client.RegisteredClient
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import java.util.UUID
 
@@ -19,13 +18,6 @@ class SecurityConfig {
       .authorities("read")
       .build()
     return InMemoryUserDetailsManager(user)
-  }
-
-  @Bean
-  fun registeredClientRepository() {
-    val registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-      .clientId("")
-      .clientSecret("")
   }
 
   @Bean
