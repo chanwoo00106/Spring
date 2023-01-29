@@ -1,5 +1,8 @@
-package com.example.productorderservice
+package com.example.productorderservice.product
 
+import org.springframework.stereotype.Repository
+
+@Repository
 class ProductRepository {
   private var sequence: Long = 0;
   private val persistence = hashMapOf<Long, Product>()

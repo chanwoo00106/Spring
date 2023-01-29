@@ -1,4 +1,4 @@
-package com.example.productorderservice
+package com.example.productorderservice.product
 class Product(
   val name: String,
   val price: Int,

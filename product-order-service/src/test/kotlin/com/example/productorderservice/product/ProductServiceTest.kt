@@ -1,12 +1,14 @@
 package com.example.productorderservice.product
 
-import com.example.productorderservice.*
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 
-class ProductServiceTest() {
-  private val productRepository = ProductRepository()
-  private val productPort: ProductPort = ProductAdapter(productRepository)
-  private val productService: ProductService = ProductService(productPort)
+@SpringBootTest
+class ProductServiceTest(
+  @Autowired
+  private val productService: ProductService
+) {
 
   @Test
   fun 상품등록() {
